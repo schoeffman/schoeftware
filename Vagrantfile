@@ -1,7 +1,11 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+Vagrant.require_plugin "vagrant-berkshelf"
+Vagrant.require_plugin "vagrant-omnibus"
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -88,6 +92,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   #   chef.validation_client_name = "ORGNAME-validator"
 
+
+
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "precise32"
 
@@ -123,15 +129,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 			"name" => "test",
 			"web_dir" => "/vagrant/site"
 		},
-  		"run_list" => ["recipe[mysql::server]"]
+  		"run_list" => [
+			      	"recipe[mysql::server]",
+				"recipe[peter::default]"
+			      ]
        }
-
-#node['nginx']['source']['modules'].
 
     chef.add_recipe "apt"     
     chef.add_recipe "php-fpm"
     chef.add_recipe "mysql"
     chef.add_recipe "nginx"
+    chef.add_recipe "default"
+
+    
   end
 
 end
