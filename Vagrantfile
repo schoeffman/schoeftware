@@ -31,11 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Default value: false
   # config.ssh.forward_agent = true
 
-  # Share an additional folder to the guest VM. The first argument is
-  # the path on the host to the actual folder. The second argument is
-  # the path on the guest to mount the folder. And the optional third
-  # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
+
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -93,6 +89,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   chef.validation_client_name = "ORGNAME-validator"
 
 
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder ".", "/home/vagrant/code"
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "precise32"
@@ -123,15 +125,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
      		},
 
 		"nginx" => { 	"default_site_enabled" => false,
-				"source" => { "modules" => "./recipes/default/default.rb"}   
-		},
-		"app" => {
-			"name" => "test",
-			"web_dir" => "/vagrant/site"
+				"source" => { "modules" => "./recipes/default/default.rb"}  
 		},
   		"run_list" => [
 			      	"recipe[mysql::server]",
-				"recipe[peter::default]"
+				"recipe[peter::default]",
+				"recipe[php]"
 			      ]
        }
 
@@ -139,7 +138,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "php-fpm"
     chef.add_recipe "mysql"
     chef.add_recipe "nginx"
-    chef.add_recipe "default"
+    chef.add_recipe "configs"
 
     
   end
