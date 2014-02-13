@@ -129,12 +129,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		},
   		"run_list" => [
 			      	"recipe[mysql::server]",
+				"recipe[mysql::client]",
 				"recipe[peter::default]",
-				"recipe[php]"
+				"recipe[php-fpm]"
 			      ]
        }
 
     chef.add_recipe "apt"     
+    chef.add_recipe "php"
     chef.add_recipe "php-fpm"
     chef.add_recipe "mysql"
     chef.add_recipe "nginx"

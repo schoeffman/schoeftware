@@ -5,5 +5,9 @@ template "/etc/nginx/sites-available/site" do
   group node.nginx.user
 end
 
-nginx_site "test"
+nginx_site "site"
 
+package "php5-mysql" do
+  action :update
+  action :install
+end

@@ -8,13 +8,10 @@ server {
         expires off;
         index index.php index.html;
 
-        location = / {
-                log_not_found off;
-                access_log off;
-        }
 
         location = /favicon.ico {
-               root /home/vagrant/code/site;
+                log_not_found off;
+                access_log off;
         }
 
         location = /robots.txt {

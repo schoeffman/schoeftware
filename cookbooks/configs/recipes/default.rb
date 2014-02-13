@@ -7,3 +7,6 @@ end
 
 nginx_site "site"
 
+package "php5-mysql" do
+  action :install
+end
