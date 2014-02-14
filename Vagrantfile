@@ -113,7 +113,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Chef solo provisioning
   config.vm.provision :chef_solo do |chef|
 
-	#node['mysql']['remove_test_database'] - Delete the test database and access to it.
 	#database name is test
 	#database user name is root
 
@@ -121,24 +120,31 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         	"mysql" => {
 	    			"server_root_password" => "root",
     				"server_repl_password"=> "root",
-    				"server_debian_password"=> "root"
+    				"server_debian_password"=> "root",
+				"remove_test_database" => "true",
+				"bind_address" => "127.0.0.1",
+				"client" => {"packages" => ["mysql-client", "libmysqlclient-dev"]}
      		},
 
 		"nginx" => { 	"default_site_enabled" => false,
 				"source" => { "modules" => "./recipes/default/default.rb"}  
 		},
   		"run_list" => [
-			      	"recipe[mysql::server]",
-				"recipe[mysql::client]",
-				"recipe[peter::default]",
-				"recipe[php-fpm]"
+			      	"recipe[mysql::client]",
+				"recipe[mysql::server]",
+				"recipe[php-fpm]",
+				"recipe[peter::default]"
 			      ]
        }
+
+
 
     chef.add_recipe "apt"     
     chef.add_recipe "php"
     chef.add_recipe "php-fpm"
-    chef.add_recipe "mysql"
+    chef.add_recipe "mysql::client"
+    chef.add_recipe "mysql::server"
+    chef.add_recipe "database"
     chef.add_recipe "nginx"
     chef.add_recipe "configs"
 
