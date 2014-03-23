@@ -27,6 +27,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Network
   config.vm.network :forwarded_port, guest: 80, host: 8182
+  config.vm.hostname = "schoeftware"
 
   # Chef solo provisioning
   config.vm.provision :chef_solo do |chef|
@@ -38,24 +39,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	    			"server_root_password" => "root",
     				"server_repl_password"=> "root",
     				"server_debian_password"=> "root",
-				"remove_test_database" => "true",
-				"bind_address" => "127.0.0.1",
-				"dump_filename" => "dump.sql",
-				"client" => {"packages" => ["mysql-client", "libmysqlclient-dev"]}
+               "remove_test_database" => "true",
+               "bind_address" => "127.0.0.1",
+               "dump_filename" => "dump.sql",
+               "client" => {"packages" => ["mysql-client", "libmysqlclient-dev"]}
      		},
-
-		"nginx" => { 	"default_site_enabled" => false,
-				"source" => { "modules" => "./recipes/default/default.rb"}  
-		},
-  		"run_list" => [
-			      	"recipe[mysql::client]",
-				"recipe[mysql::server]",
-				"recipe[php-fpm]",
-				"recipe[peter::default]"
-			      ]
+               "nginx" => { 	"default_site_enabled" => false,
+               "source" => { "modules" => "./recipes/default/default.rb"}  
+		   },
+               "run_list" => [
+               "recipe[mysql::client]",
+               "recipe[mysql::server]",
+               "recipe[php-fpm]",
+               "recipe[peter::default]"]
        }
-
-
 
     chef.add_recipe "apt"     
     chef.add_recipe "php"
@@ -66,7 +63,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "nginx"
     chef.add_recipe "configs"
 
-    
   end
-
 end
