@@ -10,3 +10,8 @@ sitemap.xml
 wp-content/cache/
 wp-content/backups/
 sitemap.xml.gz
+.bash_history
+.cache/
+.sudo_as_admin_successful
+.vagrant/
+
