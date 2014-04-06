@@ -21,8 +21,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # doesn't already exist on the user's system.
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
-  # Plugins
-  config.berkshelf.enabled = true
+  # Plugins - removed because of ops works
+  config.berkshelf.enabled = false
   config.omnibus.chef_version = :latest
 
   # Network
@@ -32,6 +32,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Chef solo provisioning
   config.vm.provision :chef_solo do |chef|
 
+
+	chef.cookbooks_path = ["cookbooks", "~/projects/opsworks-cookbooks"]
+
 	#Database Info: N:siteDb U:root P:root
 
 	chef.json = {
@@ -39,19 +42,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	    			"server_root_password" => "root",
     				"server_repl_password"=> "root",
     				"server_debian_password"=> "root",
-               "remove_test_database" => "true",
-               "bind_address" => "127.0.0.1",
-               "dump_filename" => "dump.sql",
-               "client" => {"packages" => ["mysql-client", "libmysqlclient-dev"]}
+		                "remove_test_database" => "true",
+               			"bind_address" => "127.0.0.1",
+		                "dump_filename" => "dump.sql",
+				"projectRoot" => "/home/vagrant/code/",
+               			"client" => {"packages" => ["mysql-client", "libmysqlclient-dev"]}
      		},
                "nginx" => { 	"default_site_enabled" => false,
-               "source" => { "modules" => "./recipes/default/default.rb"}  
-		   },
-               "run_list" => [
-               "recipe[mysql::client]",
-               "recipe[mysql::server]",
-               "recipe[php-fpm]",
-               "recipe[peter::default]"]
+               "source" => { "modules" => "./recipes/default/default.rb"}
+		   }
        }
 
     chef.add_recipe "apt"     
@@ -63,5 +62,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "nginx"
     chef.add_recipe "configs"
 
+
   end
 end
+
+# abandon opsworks plans just use capastrano and berfksfile...also try removeing the other cookbooks
