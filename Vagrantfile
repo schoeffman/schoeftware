@@ -1,8 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant.require_plugin "vagrant-berkshelf"
-Vagrant.require_plugin "vagrant-omnibus"
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -21,11 +19,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # doesn't already exist on the user's system.
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
-  # Plugins - removed because of ops works
-  config.berkshelf.enabled = false
-  config.omnibus.chef_version = :latest
 
   # Network
+  #config.vm.network :forwarded_port, guest: 80, host: 8182, auto_correct: true
   config.vm.network :forwarded_port, guest: 80, host: 8182
   config.vm.hostname = "schoeftware"
 
@@ -37,33 +33,38 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	#Database Info: N:siteDb U:root P:root
 
-	chef.json = {
-        	"mysql" => {
-	    			"server_root_password" => "root",
-    				"server_repl_password"=> "root",
-    				"server_debian_password"=> "root",
-		                "remove_test_database" => "true",
-               			"bind_address" => "127.0.0.1",
-		                "dump_filename" => "dump.sql",
-				"projectRoot" => "/home/vagrant/code/",
-               			"client" => {"packages" => ["mysql-client", "libmysqlclient-dev"]}
-     		},
-               "nginx" => { 	"default_site_enabled" => false,
-               "source" => { "modules" => "./recipes/default/default.rb"}
-		   }
-       }
+
 
     chef.add_recipe "apt"     
     chef.add_recipe "php"
+    chef.add_recipe "php::module_apc"
+    chef.add_recipe "php::module_curl"
+    chef.add_recipe "php::module_gd"
+    chef.add_recipe "php::module_mysql"  
     chef.add_recipe "php-fpm"
     chef.add_recipe "mysql::client"
     chef.add_recipe "mysql::server"
     chef.add_recipe "database"
     chef.add_recipe "nginx"
     chef.add_recipe "configs"
-
+      
+    chef.json = {
+		"mysql" => {
+	    			"server_root_password" => "root",
+     				"server_repl_password"=> "root",
+	   			"server_debian_password"=> "root",
+		         "remove_test_database" => "true",
+	     			"bind_address" => "127.0.0.1",
+		         "dump_filename" => "dump.sql",
+		   		"projectRoot" => "/home/vagrant/code/",
+	     			"client" => {"packages" => ["mysql-client", "libmysqlclient-dev"]}
+		},
+	       "nginx" => { 	"default_site_enabled" => false,
+	       "source" => { "modules" => "./recipes/default/default.rb"}
+		   }
+     }
 
   end
 end
-
+#/srv/www/wordpress/current
 # abandon opsworks plans just use capastrano and berfksfile...also try removeing the other cookbooks
