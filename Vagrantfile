@@ -21,7 +21,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 
   # Network
-  #config.vm.network :forwarded_port, guest: 80, host: 8182, auto_correct: true
   config.vm.network :forwarded_port, guest: 80, host: 8182
   config.vm.hostname = "schoeftware"
 
@@ -30,12 +29,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 
 	chef.cookbooks_path = ["cookbooks", "~/projects/opsworks-cookbooks"]
-
 	#Database Info: N:siteDb U:root P:root
 
-
-
-    chef.add_recipe "apt"     
+    chef.add_recipe "apt"
     chef.add_recipe "php"
     chef.add_recipe "php::module_apc"
     chef.add_recipe "php::module_curl"
@@ -45,10 +41,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "mysql::client"
     chef.add_recipe "mysql::server"
     chef.add_recipe "database"
-    chef.add_recipe "nginx"
-    chef.add_recipe "configs"
+    chef.add_recipe "apache2"
+
+    #Specific for Vagrant / Development
+    chef.add_recipe "configs::vagrantLink"
+    chef.add_recipe "configs::mysql"
+
       
     chef.json = {
+		"apache" => { "documentRoot" => "/srv/www/site"},
 		"mysql" => {
 	    			"server_root_password" => "root",
      				"server_repl_password"=> "root",
@@ -57,11 +58,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	     			"bind_address" => "127.0.0.1",
 		         "dump_filename" => "dump.sql",
 		   		"projectRoot" => "/home/vagrant/code/",
-	     			"client" => {"packages" => ["mysql-client", "libmysqlclient-dev"]}
-		},
-	       "nginx" => { 	"default_site_enabled" => false,
-	       "source" => { "modules" => "./recipes/default/default.rb"}
-		   }
+	     			"client" => {"packages" => ["libapache2-mod-php5", "mysql-client", "libmysqlclient-dev"]}
+		}
      }
 
   end
