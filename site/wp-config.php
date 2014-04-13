@@ -16,13 +16,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'siteDb');
+define('DB_NAME', 'schoeftwarephpapp');
 
 /** MySQL database username */
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', 'zjjy04c23i');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');

@@ -51,9 +51,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.json = {
 		"apache" => { "documentRoot" => "/srv/www/site"},
 		"mysql" => {
-	    			"server_root_password" => "root",
-     				"server_repl_password"=> "root",
-	   			"server_debian_password"=> "root",
+	    			"server_root_password" => "zjjy04c23i",
+     				"server_repl_password"=> "zjjy04c23i",
+	   			"server_debian_password"=> "zjjy04c23i",
 		         "remove_test_database" => "true",
 	     			"bind_address" => "127.0.0.1",
 		         "dump_filename" => "dump.sql",
