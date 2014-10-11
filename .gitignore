@@ -5,6 +5,6 @@ sitemap.xml.gz
 .bash_history
 .cache/
 .sudo_as_admin_successful
-_sites/
+_site/
 _includes/
-.sass_cache/
+.sass-cache/
