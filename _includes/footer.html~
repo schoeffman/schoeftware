@@ -1,0 +1,52 @@
+<section id="footer">
+  <div class="container">
+    <h3>Links</h3>
+
+    <ul>
+      <li class="email">
+        <a href="mailto:schoeffman@gmail.com">
+          <i class="fa fa-paper-plane-o"></i>
+          <p>
+            email
+          </p>
+        </a>
+      </li>
+
+      <li class="github">
+        <a href="https://github.com/schoeffman">
+          <i class="fa fa-github"></i>
+          <p>GitHub</p>
+        </a>
+      </li>
+
+      <li class="twitter">
+        <a href="https://twitter.com/schoeffman">
+          <i class="fa fa-twitter"></i>
+          <p>Twitter</p>
+        </a>
+      </li>
+
+      <li class="jsfiddle">
+        <a href="http://jsfiddle.net/user/schoeffman/fiddles/">
+          <i class="fa fa-jsfiddle"></i>
+          <p>JS Fiddle</p>
+        </a>
+      </li>
+
+	<li class="linkedin">
+        <a href="http://ca.linkedin.com/pub/peter-schoeffman/13/406/181">
+          <i class="fa fa-linkedin-square"></i>
+          <p>Linkedin</p>
+        </a>
+      </li>
+
+    </ul>
+
+    <div class="license">
+      {{ site.time | date: '%Y' }} © Peter Schoeffman -
+      Released under 
+      <a href="http://www.dbad-license.org/">DBAD Open Source License</a><br/><br/>
+    </div>
+
+  </div>
+</section>

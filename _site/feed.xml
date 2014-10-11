@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Peter Schoeffman | Developer</title>
+    <description>Personal website</description>
+    <link>http://schoeffman.com/</link>
+    <atom:link href="http://schoeffman.com/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Fri, 10 Oct 2014 21:58:48 -0400</pubDate>
+    <lastBuildDate>Fri, 10 Oct 2014 21:58:48 -0400</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Unnecessary background images</title>
+        <description>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://dl.dropboxusercontent.com/u/159328383/jarjarbinks.css&quot; type=&quot;text/css&quot; /&gt;
+
+&lt;p&gt;I still do not understand why would somebody use background &lt;strong&gt;image&lt;/strong&gt; containing
+just a plain color to appear &lt;em&gt;on hover&lt;/em&gt;(not only) instead of just background color unless the author
+wants to enrich an element with some witty &amp;amp; fancy background.&lt;/p&gt;
+
+&lt;p&gt;I’ve seen this on numerous websites and one can not very easily detect it by
+noticing that &lt;code&gt;background-image&lt;/code&gt; displays a little bit earlier than &lt;code&gt;background-color&lt;/code&gt;.
+Somehow you can feel that subtle blink of an image as it appears.&lt;/p&gt;
+
+&lt;p&gt;Look : &lt;/p&gt;
+
+&lt;div class=&quot;jarjarbinks color&quot;&gt;
+  &lt;h4&gt;With plain &lt;code&gt;background-color&lt;/code&gt;&lt;/h4&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Home&lt;/li&gt;
+    &lt;li&gt;About&lt;/li&gt;
+    &lt;li&gt;Pricing&lt;/li&gt;
+    &lt;li class=&quot;rightmost&quot;&gt;Contact&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;jarjarbinks image&quot;&gt;
+  &lt;h4&gt;With &lt;code&gt;background-image&lt;/code&gt;&lt;/h4&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Home&lt;/li&gt;
+    &lt;li&gt;About&lt;/li&gt;
+    &lt;li&gt;Pricing&lt;/li&gt;
+    &lt;li class=&quot;rightmost&quot;&gt;Contact&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;See ?&lt;/p&gt;
+
+&lt;p&gt;I’m still not quite sure whether I am missing something out and there’s some rather
+important aspect of &lt;code&gt;background-image&lt;/code&gt; I’m not aware of. Otherwise, it’s just another
+asset to care about.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 29 Apr 2014 22:56:00 -0400</pubDate>
+        <link>http://schoeffman.com/unnecessary-background-images</link>
+        <guid isPermaLink="true">http://schoeffman.com/unnecessary-background-images</guid>
+        
+        
+        <category>css</category>
+        
+      </item>
+    
+      <item>
+        <title>Improving coding skills with exercism.io</title>
+        <description>&lt;p&gt;There are many ways how one can sharpen his coding &amp;amp; programming skills. However, peer review
+or just simple “putting it out there” is a very important aspect of a constant achievement of 
+better results.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://exercism.io&quot;&gt;exercism.io&lt;/a&gt; is a crowd-sourced mentorship providing algorithmical exercises in&lt;/p&gt;
+&lt;mark&gt;Clojure, Coffeescript, Elixir, Go, Haskell, Javascript, Objective-C, Ocaml, Perl5, Python, Ruby and Scala.&lt;/mark&gt;
+
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;The process is very simple and straightforward. After signing in with your Github account and setting up the 
+&lt;a href=&quot;http://cli.exercism.io&quot;&gt;CLI&lt;/a&gt; you are almost ready to go.&lt;/p&gt;
+
+&lt;p&gt;Note that exercism.io binary file will be placed in &lt;code&gt;/usr/local/bin&lt;/code&gt; or &lt;code&gt;$HOME/bin&lt;/code&gt; directory so make sure you got ‘em
+in your &lt;code&gt;PATH&lt;/code&gt;. If not, add similar into your &lt;code&gt;~/.bashrc&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;...
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;/home/you/bin/:$PATH&amp;quot;&lt;/span&gt;
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;When the command line interface is ready, log in to your exercism.io account :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;exercism login&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;It’ll ask your for your GitHub username and exercism.io API key which can
+be found on your &lt;a href=&quot;http://exercism.io/account&quot;&gt;account’s&lt;/a&gt; page.&lt;/p&gt;
+
+&lt;p&gt;Proceed by selecting exercism exercises path, e.g where given
+exercises would be stored.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;What is your exercism exercises project path?
+Press Enter to &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; the default &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;~/tmp&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:
+&lt;span class=&quot;c&quot;&gt;# actual path for instance /home/user/apps/exercism&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And finally fetch the exercises :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;exercism fetch&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;exercise&quot;&gt;Exercise&lt;/h2&gt;
+
+&lt;p&gt;Navigating into your specified exercism directory, you can see that each of the
+languages has its own directory. Navigating deeper, you can see that each of the
+exercises has its own directory.&lt;/p&gt;
+
+&lt;p&gt;The initial state of the task’s directory consists of following files :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;peter@peter:~/apps/exercism/ruby/bob&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ls
+
+bob_test.rb  GETTING_STARTED.md  README.md&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;README&lt;/strong&gt; describes the given problem, gives instuctions how to approach
+that magical path leading to the solution and usually provides some background information about
+the exercise.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GETTING_STARTED&lt;/strong&gt; gets you started(in Ruby only at the moment). It introduces an
+ideal exercism workflow to achieve the desired goal.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;exercise&lt;/em&gt;_test.&lt;em&gt;ext&lt;/em&gt;&lt;/strong&gt; is a test suite your code &lt;mark&gt;has to pass&lt;/mark&gt; declaring it
+actually works as expected.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-creative-part&quot;&gt;The creative part&lt;/h3&gt;
+
+&lt;p&gt;All the code you produce should be &lt;em&gt;ideally&lt;/em&gt; (it depends on each of the very language) written in the separate file or along with the test
+file altogether. In Ruby, for instance, you create a file according to the test suite given e.g.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;minitest/autorun&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;begin&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;require_relative&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;bob&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;rescue&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;LoadError&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Meaning file &lt;code&gt;bob.rb&lt;/code&gt; containing the code ought to be placed in the root of exercise directory.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;peter@peter:~/apps/exercism/ruby/bob&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ls
+bob.rb  bob_test.rb  GETTING_STARTED.md  README.md&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Finally, exercise.&lt;/p&gt;
+
+&lt;h3 id=&quot;submitting-the-exercises&quot;&gt;Submitting the exercises&lt;/h3&gt;
+
+&lt;p&gt;When you think your code is all flashy reaching an
+eternal perfection, submit the example. &lt;br /&gt;
+When you think it is not the best you can do and there’s something
+fishy about it but you can’t seem to find the smoother way to solve the problem, submit the example.&lt;/p&gt;
+
+&lt;p&gt;To do so, just : &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;exercism submit path/to/exercise.ext&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And you receive a link to feedback of the submission&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;exercism submit path/to/exercise.ext
+For the feedback on your submission visit http://exercism.io/submissions/d3129jar13jar50fbinksc2a&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;nitpicking&quot;&gt;Nitpicking&lt;/h3&gt;
+
+&lt;p&gt;Core feature of &lt;a href=&quot;http://exercism.io&quot;&gt;exercism&lt;/a&gt;, as their front page states, is to examine, question and
+review the submitted code among the peers a.k.a nitpicking.&lt;/p&gt;
+
+&lt;p&gt;A &lt;strong&gt;nitpick&lt;/strong&gt; is not just a comment of the code. It should provide critical &amp;amp; constructive criticism about
+the submission. Maybe introduce a different approach or discuss some of its aspects.&lt;/p&gt;
+
+&lt;p&gt;As soon as an user submits his piece, he should feel encouraged to leave “Initial Thoughts” about his own code.
+(I would strongly recommend this simply because people are more likely to nitpick a submission with a commentary of the author
+especially when he raises a doubt or two about his code.)&lt;/p&gt;
+
+&lt;h3 id=&quot;iteration&quot;&gt;Iteration&lt;/h3&gt;
+
+&lt;p&gt;What would be the purpose of exercism if you wouldn’t be allowed to change the code
+over the time ?. Naturally, exercism provides concept of iteration meaning
+you can &lt;em&gt;update&lt;/em&gt; your code (preferably for the better) as much as you want. Nonetheless its philosophy calls it &lt;strong&gt;Wash, rinse, repeat.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;It is as simple as initial submitting of an exercise :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;exercism submit path/to/exercise.ext&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Each of the iterations is viewed independently meaning it has its own page and feedbacks.&lt;/p&gt;
+
+&lt;h3 id=&quot;im-done&quot;&gt;I’m done&lt;/h3&gt;
+
+&lt;p&gt;If you are done and you don’t need any more feedback on your submission click &lt;em&gt;OK, I’m done. I don’t need any more feedback on this.&lt;/em&gt; on the submission’s page and
+fetch the next exercise by :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;exercism fetch&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Although &lt;a href=&quot;http://exercism.io&quot;&gt;exercism.io&lt;/a&gt; is an awesome tool for improvement and deeper code discussion, feedback does not
+usually come very quickly not to mention that loads of submissions are left without any.
+I do really hope I’ll change in the near future.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 26 Apr 2014 17:46:00 -0400</pubDate>
+        <link>http://schoeffman.com/improving-coding-skills-with-exercism-dot-io</link>
+        <guid isPermaLink="true">http://schoeffman.com/improving-coding-skills-with-exercism-dot-io</guid>
+        
+        
+        <category>exercism</category>
+        
+        <category>tutorial</category>
+        
+        <category>practice</category>
+        
+      </item>
+    
+  </channel>
+</rss>

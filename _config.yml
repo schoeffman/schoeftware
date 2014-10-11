@@ -1,0 +1,15 @@
+# Site settings
+author: Peter Schoeffman
+title: Peter Schoeffman | Developer
+email: schoeffman@gmail.com
+description: Personal website
+keywords: web, development, game, programming, code, coding
+baseurl: ""
+root: /
+url: "http://schoeffman.com"
+twitter_username: schoeffman
+github_username:  schoeffman
+
+# Build settings
+markdown: kramdown
+permalink: /:title
