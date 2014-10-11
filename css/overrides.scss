@@ -9,6 +9,13 @@
   box-shadow: none;
 }
 
+@media only screen and (max-width : 974px) {
+
+  #about .row .column,
+  #experience .col-md-8,
+  #about .row:last-child {border: none;}
+}
+
 @media only screen and (max-width : 930px) {
   #interests .row .column {
     border-left: none;
