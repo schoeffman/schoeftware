@@ -1,9 +1,9 @@
 # Site settings
 author: Peter Schoeffman
-title: Peter Schoeffman 
+title: Peter Schoeffman
 email: schoeffman@gmail.com
 description: Personal website
-keywords: web, development, game, programming, code, coding
+keywords: web, systems, analysis, computer, game
 baseurl: ""
 root: /
 url: "http://schoeffman.com"
