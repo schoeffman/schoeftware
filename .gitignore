@@ -8,3 +8,4 @@ sitemap.xml.gz
 _site/
 _includes/
 .sass-cache/
+.DS_Store

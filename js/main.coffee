@@ -1,5 +1,3 @@
----
----
 
 $(document).ready ->
   $(".nav ul li a").click ->
@@ -11,7 +9,7 @@ $(document).ready ->
   mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 
   if $("html").hasClass("cssanimations") and not mobile
-    #'#about p', 'fadeInUp', '.column', 'fadeInUp', 
+    #'#about p', 'fadeInUp', '.column', 'fadeInUp',
     #'.item', 'fadeInDown', '.bar', 'fadeInRight',
     #'.paperplane', 'bounceInDown', '#quote .content', 'fadeIn',
     #'#quote .icon', 'fadeInDown'
@@ -23,7 +21,7 @@ $(document).ready ->
       })
 
     items = [
-        ['#about p', 'fadeIn'], ['.column', 'fadeIn'], 
+        ['#about p', 'fadeIn'], ['.column', 'fadeIn'],
         ['.item', 'fadeInDown'], ['.bar', 'fadeInRight'],
         ['.paperplane', 'bounceInDown'], ['#quote .container', 'fadeIn'],
         ['#quote .icon', 'fadeInDown']
