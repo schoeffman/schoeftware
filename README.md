@@ -1,19 +1,6 @@
 schoeftware
 ===========
 
-Personal site code
+(Depricated) Do not use
 
-```
-#install required gems
-gem install require
-gem install jekyll
-npm install -g coffee-script
-
-#run in js dir
-coffee --compile *.coffee
-
-#Build files
-rake build:dev
-```
-
-http://localhost:4000
+New repo: https://github.com/schoeffman/schoeffman.github.io
